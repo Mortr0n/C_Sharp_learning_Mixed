@@ -35,5 +35,21 @@ namespace Portfolio
         {
             return "This is my contact";
         }
+
+        [HttpGet("{testResponse}")]
+        // IActionResult will take any of our return types.  It's less performant, but ususally will do the job.
+        public IActionResult Test(string testResponse)
+        {
+            if(testResponse == "Redirect")
+            {
+                Console.WriteLine("Redirecting...");
+                return RedirectToAction("Index");
+            }
+            else if(testResponse == "Json")
+            {
+                return Json(new {TestResponse = testResponse});
+            }
+            return View();
+        }
     }
 }

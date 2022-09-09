@@ -8,6 +8,8 @@ if(app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
+app.UseStaticFiles();
+
 app.MapGet("/", () => "Hello World!");
 // app.MapGet("/", () => {
 //     Console.WriteLine(env.ContentRootPath);
