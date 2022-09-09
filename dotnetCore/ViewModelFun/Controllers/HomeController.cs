@@ -18,6 +18,39 @@ public class HomeController : Controller
         return View();
     }
 
+    // public IActionResult Users()
+    // {
+    //     User userOne = new User()
+    //     {
+    //         FirstName = "Sally",
+    //         LastName = "Sanderson"
+    //     };
+
+    //     User userTwo = new User()
+    //     {
+    //         FirstName = "Billy",
+    //         LastName = "Brown"
+    //     };
+
+    //     User userThree = new User()
+    //     {
+    //         FirstName = "Terrance",
+    //         LastName = "Nightengale"
+    //     };
+
+    //     User userFour = new User()
+    //     {
+    //         FirstName = "Moose",
+    //         LastName = "Montgomery"
+    //     };
+        
+    //     List<User> usersViewModel = new List<User>()
+    //     {
+    //         userOne, userTwo, userThree, userFour
+    //     };
+    //     return View(usersViewModel);
+    // }
+
     public IActionResult Privacy()
     {
         return View();
