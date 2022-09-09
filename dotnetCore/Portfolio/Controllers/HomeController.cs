@@ -25,15 +25,15 @@ namespace Portfolio
         }
 
         [HttpGet("projects")]
-        public string Projects()
+        public IActionResult Projects()
         {
-            return "Here are my Projects";
+            return View("Projects");
         }
 
         [HttpGet("contact")]
-        public string Contact()
+        public IActionResult Contact()
         {
-            return "This is my contact";
+            return View("Contact");
         }
 
         [HttpGet("{testResponse}")]
