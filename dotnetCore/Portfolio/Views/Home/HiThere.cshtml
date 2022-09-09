@@ -8,5 +8,30 @@
 </head>
 <body>
     <h1>Hi There!</h1>
+
+    @{
+        var StringList = new List<string>
+        {
+            "Dog",
+            "Cat",
+            "Horse",
+            "Donkey",
+            "Walrus"
+        };
+
+        foreach(var word in StringList)
+        {
+            if(word.Substring(0, 1) == "C")
+            {
+                <h3 style="color: red">@word</h3>
+            } 
+            else 
+            {
+                <h3>@word</h3>
+            }
+            
+        }
+        
+    }
 </body>
 </html>
