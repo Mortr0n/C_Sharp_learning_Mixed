@@ -1,0 +1,16 @@
+.blue {
+    color: lightseagreen;
+    text-align: center;
+}
+
+.form-div {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+}
+
+.form-items {
+    display: flex;
+    flex-direction: column;
+}
