@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DojoSurvey.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DojoSurvey
@@ -25,15 +26,19 @@ namespace DojoSurvey
         }
 
         [HttpGet("result")]
-        public IActionResult Result(string Name, string Location, string Language, string Comment)
+        public IActionResult Result(Survey survey)
         {
-            IDictionary<string, string> yourInfo = new Dictionary<string, string>();
-            yourInfo.Add("name", Name);
-            yourInfo.Add("yourLocation", Location);
-            yourInfo.Add("favoriteLanguage", Language);
-            yourInfo.Add("yourComment", Comment);
-            ViewBag.YourInfo = yourInfo;
-            return View("Result");
+            return View(survey);
         }
+        // public IActionResult Result(string Name, string Location, string Language, string Comment)
+        // {
+        //     IDictionary<string, string> yourInfo = new Dictionary<string, string>();
+        //     yourInfo.Add("name", Name);
+        //     yourInfo.Add("yourLocation", Location);
+        //     yourInfo.Add("favoriteLanguage", Language);
+        //     yourInfo.Add("yourComment", Comment);
+        //     ViewBag.YourInfo = yourInfo;
+        //     return View("Result");
+        // }
     }
 }
