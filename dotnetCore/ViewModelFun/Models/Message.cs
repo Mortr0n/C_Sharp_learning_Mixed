@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ViewModelFun.Controllers
+namespace ViewModelFun.Models
 {
-    public class Users
+    public class Message
     {
-        
+        public string message {get; set;}
     }
 }
