@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "DojoDachi";
+}
+
+<div class="text-center">
+    <h1 class="display-4">DojoDachi</h1>
+    <div class="dachi-container">
+        <div class="top-stats-div">
+            <div class="full-div">
+                <h5>Fullness: @ViewBag.FullScore </h5>
+            </div>
+            <div class="happy-div">
+                <h5>Happiness: @ViewBag.HappyScore</h5>
+            </div>
+            <div class="Meals-div">
+                <h5>Meals: @ViewBag.MealScore</h5>
+            </div>
+            <div class="Energy-div">
+                <h5>Energy: @ViewBag.EnergyScore</h5>
+            </div>
+        </div>
+        <div class="main-dachi-window">
+            @{
+                if(ViewBag.Lose == "True")
+                {
+                    <h3 class="text-red">@ViewBag.Message  @ViewBag.Lose</h3>
+                    <a href="/Reset"><button class="action-button" type="button">Start Over</button></a>
+                }
+                else
+                {
+                    <h3>@ViewBag.Message @ViewBag.Lose</h3>
+                }
+            }
+            
+        </div>
+        <div class="bottom-button-div">
+            <a href="/Feed"><button class="action-button" type="button">Feed</button></a>
+            <a href="/Play"><button class="action-button" type="button">Play</button></a> 
+            <a href="/Work"><button class="action-button" type="button">Work</button></a>
+            <a href="/Sleep"><button class="action-button" type="button">Sleep</button></a>
+        </div>
+    </div>
+</div>
