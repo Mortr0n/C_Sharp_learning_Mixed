@@ -12,17 +12,24 @@ namespace DojoSurvey
         [HttpGet("")]
         public IActionResult Index()
         {
-            string[] locations = new string[]{"Missoula", "Bozeman", "Billings", "Kallispell"};
-            ViewBag.locations = locations;
-            string[] languages = new string[]{"C#", "C++", "Python", "Java", "JavaScript"};
-            ViewBag.languages = languages;
+            // string[] locations = new string[]{"Missoula", "Bozeman", "Billings", "Kallispell"};
+            // ViewBag.locations = locations;
+            // string[] languages = new string[]{"C#", "C++", "Python", "Java", "JavaScript"};
+            // ViewBag.languages = languages;
             return View();
         }
 
         [HttpPost("SubmitInfo")]
-        public IActionResult SubmitInfo(string yourName, string location, string language, string comment)
+        public IActionResult SubmitInfo(Survey survey)
         {
-            return RedirectToAction("Result", new{Name = yourName, Location = location, Language = language, Comment = comment});
+            if(ModelState.IsValid)
+            {
+                return RedirectToAction("Result");
+            }
+            else
+            {
+                return View("Index");
+            }
         }
 
         [HttpGet("result")]

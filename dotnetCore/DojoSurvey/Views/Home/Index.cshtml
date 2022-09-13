@@ -1,40 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="~/css/styles.css" />
-</head>
-<body>
+@{
+    string [] locations = new string[]
+    {
+        "Missoula", "Bozeman", "Billings", "Kallispell"
+    };
+
+    string[] languages = new string[]
+    {
+        "C#", "C++", "Python", "Java", "JavaScript"
+    };
+}
+@model DojoSurvey.Models.Survey
+
     <h1 class="blue">Home</h1>
     <div class="form-div">
         <form action="SubmitInfo" method="post" class="form-items">
-            <label>Your Name:</label>
-            <input type="text" name="YourName" />
-            <label>Dojo Location:</label>
-            <select type="select" name="Location">
+            <span asp-validation-for="YourName"></span>
+            <label asp-for="YourName"></label>
+            <input asp-for="YourName"/>
+            <span asp-validation-for="Location"></span>
+            <label asp-for="Location">Dojo Location:</label>
+            <select asp-for="Location">
                 @{
+                    foreach(var location in locations)
+                    {
+                        <option value="@location" >@location</option>
+                    }
+                }
+                @* @{
                     for(int i = 0; i < ViewBag.locations.Length; i++)
                     {
                         <option>@ViewBag.locations[i]</option>
                     }
-                }
+                } *@
             </select>
-            <label>Favorite Language:</label>
-            <select type="select" name="Language" >
+            <span asp-validation-for="Language"></span>
+            <label asp-for="Language">Favorite Language:</label>
+            <select type="select" asp-for="Language" >
                 @{
+                    foreach(var lang in languages)
+                    {
+                        <option value="@lang" >@lang</option>
+                    }
+                }
+                @* @{
                     for(int j = 0; j < ViewBag.languages.Length; j++)
                     {
                         <option>@ViewBag.languages[j]</option>
                     }
-                }
+                } *@
             </select>
-            <label>Comment:</label>
-            <input type="textarea" name="Comment" rows="4" cols="50" />
+            <span asp-validation-for="Comment"></span>
+            <label asp-for="Comment">Comment:</label>
+            <input type="textarea" asp-for="Comment" rows="4" cols="50" />
             <input type="submit" name="submit-button" value="Submit" />
         </form>
     </div>
-</body>
-</html>
