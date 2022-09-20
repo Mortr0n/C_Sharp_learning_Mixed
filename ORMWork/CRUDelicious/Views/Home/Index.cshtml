@@ -1,12 +1,10 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<Dish>
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p></p>
     @{
-        foreach(var dish in ViewBag.Dishes)
+        foreach(var dish in Model)
         {
             <li>@dish.Name</li>
         }

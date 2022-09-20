@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using CRUDelicious.Models;
 
 namespace CRUDelicious.Controllers;
@@ -18,9 +20,10 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         // List<Dishes> AllDishes = dbContext.Dishes.ToList();
-        List<Dish> AllDishes = dbContext.Dishes.ToList();
-        ViewBag.Dishes = AllDishes;
-        return View();
+        // ViewBag.AllDishes = dbContext.Dishes.ToList();
+        
+        // ViewBag.Dishes = AllDishes;
+        return View(dbContext.Dishes.OrderByDescending(dish => dish.CreatedAt));
     }
 
     // public HomeController(ILogger<HomeController> logger)
