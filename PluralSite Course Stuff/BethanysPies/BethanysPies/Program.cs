@@ -1,4 +1,9 @@
+using BethanysPies.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<ICategoryRepository, MockCategoryRepository>();
+builder.Services.AddScoped<IPieRepository, MockPieRepository>();
 
 //Adding framework services that enable MVC
 builder.Services.AddControllersWithViews();
